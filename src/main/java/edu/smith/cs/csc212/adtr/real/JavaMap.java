@@ -53,7 +53,8 @@ public class JavaMap<K,V> implements MapADT<K,V> {
 
 	@Override
 	public V remove(K k) {
-		return this.remove(k);
+		// was originally this.remove(k)
+		return this.data.remove(k);
 	}
 
 	@Override

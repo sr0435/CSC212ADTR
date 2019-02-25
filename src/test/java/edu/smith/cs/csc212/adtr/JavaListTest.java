@@ -110,7 +110,37 @@ public class JavaListTest {
 	}
 	
 	// TODO: test list remove
+	
+	@Test
+	public void testRemoveBack() {
+		ListADT<String> data = makeFullList();
+		data.removeBack();
+		assertEquals(data.getIndex(2), "c");
+		assertEquals(data.getIndex(0), "a");
+	}
+	
+	@Test
+	public void testRemoveIndex() {
+		ListADT<String> data = makeFullList();
+	}
+	
+	@Test
+	public void testRemoveFront() {
+		ListADT<String> data = makeFullList();
+	}
+	
 	// TODO test addIndex methods.
+	
+	@Test
+	public void testAddIndex() {
+		ListADT<String> data = makeFullList();
+		data.addIndex(4, "w");
+		assertEquals(data.getIndex(4), "w");
+		data.addIndex(2, "g");
+		assertEquals(data.getIndex(2), "g");
+		assertEquals(data.getIndex(1), "b");
+		assertEquals(data.getIndex(3), "c");
+	}
 	
 	@Test
 	public void testGetFront() {
@@ -175,7 +205,18 @@ public class JavaListTest {
 	// TODO write some tests for setIndex.
 	
 	@Test
+	public void testSetIndex() {
+		ListADT<String> data = makeFullList();
+		data.setIndex(0,"t");
+		assertEquals(data.getIndex(0), "t");
+		assertEquals(data.getIndex(1)=="b", true);
+		data.setIndex(3,"q");
+		assertEquals(data.getIndex(3), "q");
+	}
+	
+	@Test
 	public void testToJava() {
-		assertEquals(makeFullList().toJava(), Arrays.asList("a", "b", "d", "d"));
+		// changed to abcd not abdd
+		assertEquals(makeFullList().toJava(), Arrays.asList("a", "b", "c", "d"));
 	}
 }
