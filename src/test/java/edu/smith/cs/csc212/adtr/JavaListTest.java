@@ -108,8 +108,7 @@ public class JavaListTest {
 		Assert.assertEquals("0", data.getIndex(1));
 		Assert.assertEquals("1", data.getIndex(0));
 	}
-	
-	// : test list remove
+
 	
 	@Test
 	public void testRemoveBack() {
@@ -147,7 +146,6 @@ public class JavaListTest {
 		assertEquals(data.getIndex(0), "a");
 	}
 	
-	//  test addIndex methods.
 	
 	@Test
 	public void testAddIndex() {
@@ -220,14 +218,12 @@ public class JavaListTest {
 		data.addIndex(-1, "the");
 	}
 	
-	// write some tests for setIndex.
 	
 	@Test
 	public void testSetIndex() {
 		ListADT<String> data = makeFullList();
 		data.setIndex(0,"t");
-		assertEquals(data.getIndex(0), "t");
-		assertEquals(data.getIndex(1)=="b", true);
+		assertEquals(data.getIndex(1)=="b" && data.getIndex(0)=="t", true);
 		data.setIndex(3,"q");
 		assertEquals(data.getIndex(3), "q");
 	}

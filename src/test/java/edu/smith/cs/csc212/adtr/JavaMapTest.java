@@ -1,13 +1,9 @@
 package edu.smith.cs.csc212.adtr;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
-import java.util.Set;
-
 import org.junit.Test;
 
 import edu.smith.cs.csc212.adtr.real.JavaMap;
@@ -56,7 +52,6 @@ public class JavaMapTest {
 		remover.remove("dice");
 		// checks that dice was removed
 		assertEquals(remover.getKeys().toJava().contains("dice"), false);
-
 	}
 	
 	// 
@@ -67,9 +62,9 @@ public class JavaMapTest {
 		keytizer.put("aries", 7);
 		keytizer.put("taurus", 5);
 		List<String> testingKeys = keytizer.getKeys().toJava();
-		assertEquals(testingKeys.contains("pisces"),true);
-		assertEquals(testingKeys.contains("aries"), true);
-		assertEquals(testingKeys.contains("taurus"), true);
+		assertEquals(testingKeys.contains("pisces")
+				&& testingKeys.contains("aries")
+				&& testingKeys.contains("taurus"),true);
 		}
 	
 	@Test
@@ -83,9 +78,12 @@ public class JavaMapTest {
 		// then adds toJava so the test can check if the keys and values
 		// are being put in correctly
 		List<Pair<String, Integer>> enterererList = entererer.getEntries().toJava();
-		assertEquals(enterererList.get(0).getKey()=="taurus" && enterererList.get(0).getValue()==5, true);
-		assertEquals(enterererList.get(1).getKey()=="aries" && enterererList.get(1).getValue()==7, true);
-		assertEquals(enterererList.get(2).getKey()=="pisces" && enterererList.get(2).getValue()==3, true);
+		assertEquals(enterererList.get(0).getKey()=="taurus" 
+				&& enterererList.get(0).getValue()==5, true);
+		assertEquals(enterererList.get(1).getKey()=="aries" 
+				&& enterererList.get(1).getValue()==7, true);
+		assertEquals(enterererList.get(2).getKey()=="pisces" 
+				&& enterererList.get(2).getValue()==3, true);
 	}
 	
 	@Test
@@ -95,7 +93,8 @@ public class JavaMapTest {
 	maptastic.put("chocolate", 9);
 	maptastic.put("strawberry", 10);
 	// checks if maptastic was converted to a HashMap from a MapADT
-	assertEquals(maptastic.toJava() instanceof HashMap && maptastic.toJava() instanceof MapADT==false, true);
+	assertEquals(maptastic.toJava() instanceof HashMap 
+			&& maptastic.toJava() instanceof MapADT==false, true);
 	// makes sure everything was added and is paired correctly to its key/value
 	assertEquals(maptastic.toJava().get("vanilla")==8,true);
 	assertEquals(maptastic.toJava().get("chocolate")==9,true);

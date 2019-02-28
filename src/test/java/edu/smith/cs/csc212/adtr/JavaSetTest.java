@@ -2,7 +2,6 @@ package edu.smith.cs.csc212.adtr;
 
 import static org.junit.Assert.assertEquals;
 
-import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Random;
 
@@ -78,7 +77,6 @@ public class JavaSetTest {
 				&& newLister.toJava().contains("lychee"), true);
 	}
 	
-	// 
 	@Test
 	public void testToJava() {
 		SetADT<String> javernator = new JavaSet<>();
